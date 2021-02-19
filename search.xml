@@ -1,18 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Java的数据类型</title>
-    <url>/2021/02/17/Java%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</url>
-    <content><![CDATA[<h1 id="音乐"><a href="#音乐" class="headerlink" title="音乐"></a>音乐</h1><p><img src="https://w.wallhaven.cc/full/rd/wallhaven-rddgwm.jpg" alt="图片"></p>
-]]></content>
-      <categories>
-        <category>日常学习</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>hexo搭建博客汇总</title>
     <url>/2021/02/12/hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%B1%87%E6%80%BB/</url>
     <content><![CDATA[<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><blockquote>
@@ -152,6 +140,18 @@
       </categories>
       <tags>
         <tag>博客</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java的数据类型</title>
+    <url>/2021/02/17/Java%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</url>
+    <content><![CDATA[<h1 id="音乐"><a href="#音乐" class="headerlink" title="音乐"></a>音乐</h1><p><img src="https://browser9.qhimg.com/bdm/1280_800_85/t016bfcfba1e1d7b91f.jpg" alt="图片"></p>
+]]></content>
+      <categories>
+        <category>日常学习</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
       </tags>
   </entry>
   <entry>
