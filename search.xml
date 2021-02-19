@@ -13,6 +13,18 @@
       </tags>
   </entry>
   <entry>
+    <title>连载</title>
+    <url>/2021/02/17/%E8%BF%9E%E8%BD%BD/</url>
+    <content><![CDATA[<p><img src="https://p8.qhimg.com/bdm/1280_800_85/t01787b3fff50d8e269.jpg" alt="封面"></p>
+<h1 id="音乐"><a href="#音乐" class="headerlink" title="音乐"></a>音乐</h1>]]></content>
+      <categories>
+        <category>连载</category>
+      </categories>
+      <tags>
+        <tag>文章</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>hexo搭建博客汇总</title>
     <url>/2021/02/12/hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%B1%87%E6%80%BB/</url>
     <content><![CDATA[<p><img src="https://browser9.qhimg.com/bdm/1280_800_85/t01a5211bae6d28520e.jpg" alt="封面"></p>
@@ -153,18 +165,6 @@
       </categories>
       <tags>
         <tag>博客</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>连载</title>
-    <url>/2021/02/17/%E8%BF%9E%E8%BD%BD/</url>
-    <content><![CDATA[<p><img src="https://p8.qhimg.com/bdm/1280_800_85/t01787b3fff50d8e269.jpg" alt="封面"></p>
-<h1 id="音乐"><a href="#音乐" class="headerlink" title="音乐"></a>音乐</h1>]]></content>
-      <categories>
-        <category>连载</category>
-      </categories>
-      <tags>
-        <tag>文章</tag>
       </tags>
   </entry>
 </search>
