@@ -1,141 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Java的数据类型</title>
-    <url>/2021/02/21/Java%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</url>
-    <content><![CDATA[<p><img src="https://p9.qhimg.com/bdm/1280_800_85/t01b7aab4ac9d0afe81.jpg" alt="图片来源于网络"></p>
-<h1 id="Java-的数据类型"><a href="#Java-的数据类型" class="headerlink" title="Java 的数据类型"></a>Java 的数据类型</h1><h2 id="Java-数据类型在JVM中的分布"><a href="#Java-数据类型在JVM中的分布" class="headerlink" title="Java 数据类型在JVM中的分布"></a>Java 数据类型在JVM中的分布</h2><blockquote>
-<p>JVM 数据在内存中的分布大致分为：堆区，栈区，方法区</p>
-</blockquote>
-<ul>
-<li><p>Java 数据，变量大多数存放在堆栈中。</p>
-<ul>
-<li><p>其中，栈区主要存放局部变量，对象声明的引用等。</p>
-</li>
-<li><p>堆区主要存放 new 关键字创建的类（包含成员变量）和数组等.</p>
-</li>
-</ul>
-</li>
-<li><p>方法区则主要储存被JVM加载过的类信息，常量，以及编译过的代码片段等。</p>
-</li>
-</ul>
-<blockquote>
-<p>堆与栈的优缺点</p>
-</blockquote>
-<ul>
-<li>栈的优点：栈数据可以共享，存取速度比堆快。<ul>
-<li>缺点是：存在栈中数据大小与生命周期是确定的。</li>
-</ul>
-</li>
-<li>堆的优点：可以动态分配内存大小，生存期也不必事先告诉编译器。<ul>
-<li>缺点是：存取速度较慢。</li>
-</ul>
-</li>
-</ul>
-<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><p>Java 的数据类型主要包括：基本数据类型和引用数据类型。</p>
-<blockquote>
-<p>基本数据类型  </p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th>数据类型</th>
-<th>字节</th>
-<th>默认值</th>
-<th>表达范围</th>
-<th>封装类</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>byte（字节型）</td>
-<td>1</td>
-<td>0</td>
-<td>-128~127</td>
-<td>Byte</td>
-</tr>
-<tr>
-<td>short（短整型）</td>
-<td>2</td>
-<td>0</td>
-<td>-32768～32767</td>
-<td>Short</td>
-</tr>
-<tr>
-<td>int（整形）</td>
-<td>4</td>
-<td>0</td>
-<td>-2147483648～2147483647</td>
-<td>Integer</td>
-</tr>
-<tr>
-<td>long（长整型）</td>
-<td>8</td>
-<td>0L</td>
-<td>-9223372036854775808 ~ 9223372036854775807</td>
-<td>Long</td>
-</tr>
-<tr>
-<td>float（单精度浮点型）</td>
-<td>4</td>
-<td>0.0F</td>
-<td>-3.4E38～3.4E38</td>
-<td>Float</td>
-</tr>
-<tr>
-<td>double（双精度浮点型）</td>
-<td>8</td>
-<td>0.0</td>
-<td>-1.7E308～1.7E308</td>
-<td>Double</td>
-</tr>
-<tr>
-<td>boolean（布尔型）</td>
-<td>1</td>
-<td>false</td>
-<td>true或false</td>
-<td>Boolean</td>
-</tr>
-<tr>
-<td>char（字符型）</td>
-<td>2</td>
-<td>‘\u0000’</td>
-<td>从字符型对应的整型数来划分，其表示范围是0～65535</td>
-<td>Charater</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
-<blockquote>
-<p>引用数据类型</p>
-</blockquote>
-<ul>
-<li><p>Java 中的引用数据类型建立在基本数据类型的基础上，包括数组、类和接口。</p>
-</li>
-<li><p>需要注意的是，Java 语言中不支持 C++ 中的指针类型（*）、结构类型（struct）、联合类型（union）和枚举类型（enum）。</p>
-</li>
-<li><p>通俗意义上来讲，引用数据类型，是对于实例、数组对象地址的引用。实际上引用数据类型就是一个指针，只是 Java 语言中不再使用指针这个说法。</p>
-</li>
-<li><p>引用类型还有一种特殊的空类型(null type)，这种类型没有名字，所以无法声明或转换成一个null类型的变量。注：空类型只针对于引用类型。</p>
-</li>
-</ul>
-<h2 id="参见"><a href="#参见" class="headerlink" title="参见"></a>参见</h2><ul>
-<li><a href="https://blog.csdn.net/weixin_36431280/article/details/78430786">基本数据类型</a></li>
-<li><a href="http://c.biancheng.net/view/5672.html">引用数据类型</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>日常学习</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>hexo搭建博客汇总</title>
     <url>/2021/02/12/hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%B1%87%E6%80%BB/</url>
     <content><![CDATA[<p><img src="https://browser9.qhimg.com/bdm/1280_800_85/t01a5211bae6d28520e.jpg" alt="图片来源于网络"></p>
@@ -280,6 +145,135 @@
       </categories>
       <tags>
         <tag>博客</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java的数据类型</title>
+    <url>/2021/02/21/Java%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</url>
+    <content><![CDATA[<p><img src="https://p9.qhimg.com/bdm/1280_800_85/t01b7aab4ac9d0afe81.jpg" alt="图片来源于网络"></p>
+<h1 id="Java-的数据类型"><a href="#Java-的数据类型" class="headerlink" title="Java 的数据类型"></a>Java 的数据类型</h1><h2 id="Java-数据类型在JVM中的分布"><a href="#Java-数据类型在JVM中的分布" class="headerlink" title="Java 数据类型在JVM中的分布"></a>Java 数据类型在JVM中的分布</h2><blockquote>
+<p>JVM 数据在内存中的分布大致分为：堆区，栈区，方法区</p>
+</blockquote>
+<ul>
+<li><p>Java 数据，变量大多数存放在堆栈中。</p>
+<ul>
+<li><p>其中，栈区主要存放局部变量，对象声明的引用等。</p>
+</li>
+<li><p>堆区主要存放 new 关键字创建的类（包含成员变量）和数组等.</p>
+</li>
+</ul>
+</li>
+<li><p>方法区则主要储存被JVM加载过的类信息，常量，以及编译过的代码片段等。</p>
+</li>
+</ul>
+<blockquote>
+<p>堆与栈的优缺点</p>
+</blockquote>
+<ul>
+<li>栈的优点：栈数据可以共享，存取速度比堆快。<ul>
+<li>缺点是：存在栈中数据大小与生命周期是确定的。</li>
+</ul>
+</li>
+<li>堆的优点：可以动态分配内存大小，生存期也不必事先告诉编译器。<ul>
+<li>缺点是：存取速度较慢。</li>
+</ul>
+</li>
+</ul>
+<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><p>Java 的数据类型主要包括：基本数据类型和引用数据类型。</p>
+<blockquote>
+<p>基本数据类型  </p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>数据类型</th>
+<th>字节</th>
+<th>默认值</th>
+<th>表达范围</th>
+<th>包装类</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>byte（字节型）</td>
+<td>1</td>
+<td>0</td>
+<td>-128~127</td>
+<td>Byte</td>
+</tr>
+<tr>
+<td>short（短整型）</td>
+<td>2</td>
+<td>0</td>
+<td>-32768～32767</td>
+<td>Short</td>
+</tr>
+<tr>
+<td>int（整形）</td>
+<td>4</td>
+<td>0</td>
+<td>-2147483648～2147483647</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>long（长整型）</td>
+<td>8</td>
+<td>0L</td>
+<td>-9223372036854775808 ~ 9223372036854775807</td>
+<td>Long</td>
+</tr>
+<tr>
+<td>float（单精度浮点型）</td>
+<td>4</td>
+<td>0.0F</td>
+<td>-3.4E38～3.4E38</td>
+<td>Float</td>
+</tr>
+<tr>
+<td>double（双精度浮点型）</td>
+<td>8</td>
+<td>0.0</td>
+<td>-1.7E308～1.7E308</td>
+<td>Double</td>
+</tr>
+<tr>
+<td>boolean（布尔型）</td>
+<td>1</td>
+<td>false</td>
+<td>true或false</td>
+<td>Boolean</td>
+</tr>
+<tr>
+<td>char（字符型）</td>
+<td>2</td>
+<td>‘\u0000’</td>
+<td>从字符型对应的整型数来划分，其表示范围是0～65535</td>
+<td>Charater</td>
+</tr>
+</tbody></table>
+<p>  （提示：八种包装类都属于引用数据类型，包装类的存在是为了满足多态的需求。）</p>
+<blockquote>
+<p>引用数据类型</p>
+</blockquote>
+<ul>
+<li><p>Java 中的引用数据类型建立在基本数据类型的基础上，包括数组、类和接口。</p>
+</li>
+<li><p>需要注意的是，Java 语言中不支持 C++ 中的指针类型（*）、结构类型（struct）、联合类型（union）和枚举类型（enum）。</p>
+</li>
+<li><p>通俗意义上来讲，引用数据类型，是对于实例、数组对象地址的引用。实际上引用数据类型就是一个指针，只是 Java 语言中不再使用指针这个说法。</p>
+</li>
+<li><p>引用类型还有一种特殊的空类型(null type)，这种类型没有名字，所以无法声明或转换成一个null类型的变量。注：空类型只针对于引用类型。</p>
+</li>
+</ul>
+<h2 id="参见"><a href="#参见" class="headerlink" title="参见"></a>参见</h2><ul>
+<li><a href="https://blog.csdn.net/weixin_36431280/article/details/78430786">基本数据类型</a></li>
+<li><a href="http://c.biancheng.net/view/5672.html">引用数据类型</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>日常学习</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
       </tags>
   </entry>
 </search>
