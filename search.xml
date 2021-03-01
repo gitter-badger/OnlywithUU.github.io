@@ -1,8 +1,197 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Hexo搭建博客汇总</title>
-    <url>/2021/02/12/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%B1%87%E6%80%BB/</url>
+    <title>Java_String类概述</title>
+    <url>/2021/03/01/Java-String%E7%B1%BB%E6%A6%82%E8%BF%B0/</url>
+    <content><![CDATA[<p><img src="https://browser9.qhimg.com/bdm/1280_800_85/t01e4c1a6fad8c7be4b.jpg" alt="图片源于网络"></p>
+<h1 id="Java-String类详解"><a href="#Java-String类详解" class="headerlink" title="Java String类详解"></a>Java String类详解</h1><h2 id="String-类概述"><a href="#String-类概述" class="headerlink" title="String 类概述"></a><strong>String</strong> 类概述</h2><blockquote>
+<p>String字符串</p>
+</blockquote>
+<ul>
+<li><p><strong>String</strong> 是 Java JDK 中内置的一种类：<strong>java.lang.String</strong>。</p>
+<ol>
+<li>String 表示字符串类型，属于引用数据类型。</li>
+<li>Java 程序中所有字符串字面值都作为 String 类的对象。（例如: “abc” , “defg” , “hello world!”），这是三个String对象。</li>
+<li>Java 规定，字符串是常量——他们的值在创建之后不能更改的，（”abd” 不能变成 “abcd”）。</li>
+<li><del>在 JDK 中规定，双引号括起来的字符串都是直接存储在 <strong>JVM 方法区</strong> 的字符串常量池中</del>。</li>
+<li>JDK 7.0后，字符串常量池转移到 <strong>JVM 堆区</strong> 中。</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p>通过图片例子认识字符串常量池<strong>Cache</strong></p>
+</blockquote>
+<ul>
+<li><p>String 对象一旦创建不可变</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">String s1 = <span class="string">&quot;abc&quot;</span>;</span><br><span class="line">String s2 = <span class="string">&quot;abc&quot;</span>;</span><br></pre></td></tr></table></figure>
+<p>由于字符串常量，被存储于字符串常量池，所以上述例子当中只出现一个对象 “abc”。</p>
+<p><img src="https://uploadbeta.com/share-image/gwy" alt="图片来自网络"></p>
+</li>
+<li><p>String 对象一般不会被 gc 回收</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">String s1 = <span class="string">&quot;abc&quot;</span>;</span><br><span class="line">String s2 = s1 + <span class="string">&quot;de&quot;</span>;</span><br></pre></td></tr></table></figure>
+<p>由于字符串常量，一旦创建不可更改的特性，并且储存在字符串常量池中，原来废弃的常量不会被 gc 回收，所以此例中出现三个对象 “abc”,”de”,”abcde”。</p>
+<p><img src="https://uploadbeta.com/share-image/gwz" alt="图片来自网络"></p>
+</li>
+<li><p>new出来的对象都在堆区</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">String s3 = <span class="keyword">new</span> String(<span class="string">&quot;de&quot;</span>);</span><br></pre></td></tr></table></figure>
+<p>由于字符串对象存储在字符串常量池，位于方法区中，而new出来的对象都储存在堆区，所以会出现s3指向位于堆区的对象内的byte数组指向位于方法区字符串常量池内的 “bc”，（解释起来果然麻烦，看图！）。</p>
+<p><img src="https://uploadbeta.com/share-image/gwA" alt="图片来自网络"></p>
+</li>
+</ul>
+<blockquote>
+<p>由于字符串常量池的种种特性，会出现下列“看似不可能”</p>
+</blockquote>
+<ul>
+<li><p>字面值相同，对象地址不同</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">String s1 = <span class="string">&quot;abc&quot;</span>;</span><br><span class="line">String s2 = <span class="keyword">new</span> String(<span class="string">&quot;abc&quot;</span>);</span><br><span class="line">System.out.println(s1 == s2);  <span class="comment">//false</span></span><br></pre></td></tr></table></figure>
+<p>  尽管从字面值来看，s1 确实等于 s2。但是 s1 指向的是方法区，而 s2 指向的是堆区对象，对象内再指向方法区，二者截然不同。</p>
+</li>
+<li><p>不明白</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">String s1 = <span class="string">&quot;abc&quot;</span>;</span><br><span class="line">String s2 = <span class="string">&quot;ab&quot;</span>;</span><br><span class="line">System.out.println(s2 + <span class="string">&quot;c&quot;</span> == s1);  <span class="comment">//false</span></span><br></pre></td></tr></table></figure>
+<p> 这个例子是我在进行实验时意外发现的，原本在<strong>自动装箱</strong>的情况下，s2 + “c” 就应该是 “abc”，但是答案确实false。</p>
+<p> 百思不得其解，留待上课时询问老师。</p>
+</li>
+</ul>
+<h2 id="String-类常用方法"><a href="#String-类常用方法" class="headerlink" title="String 类常用方法"></a>String 类常用方法</h2>]]></content>
+      <categories>
+        <category>日常学习</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java的数据类型</title>
+    <url>/2021/02/21/Java%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</url>
+    <content><![CDATA[<p><img src="https://p9.qhimg.com/bdm/1280_800_85/t01b7aab4ac9d0afe81.jpg" alt="图片来源于网络"></p>
+<h1 id="Java-的数据类型"><a href="#Java-的数据类型" class="headerlink" title="Java 的数据类型"></a>Java 的数据类型</h1><h2 id="Java-数据类型在JVM中的分布"><a href="#Java-数据类型在JVM中的分布" class="headerlink" title="Java 数据类型在JVM中的分布"></a>Java 数据类型在JVM中的分布</h2><blockquote>
+<p>JVM 数据将内存大致分为：堆区，栈区，方法区</p>
+</blockquote>
+<ul>
+<li><p>Java 数据，变量大多数存放在堆栈中。</p>
+<ul>
+<li><p>其中，栈区主要存放局部变量，对象声明的引用等。</p>
+</li>
+<li><p>堆区主要存放 new 关键字创建的类（包含成员变量）和数组等.</p>
+</li>
+</ul>
+</li>
+<li><p>方法区则主要储存被JVM加载过的类信息，常量，以及编译过的代码片段等。</p>
+</li>
+</ul>
+<blockquote>
+<p>堆与栈的优缺点</p>
+</blockquote>
+<ul>
+<li>栈的优点：栈数据可以共享，存取速度比堆快。<ul>
+<li>缺点是：存在栈中数据大小与生命周期是确定的。</li>
+</ul>
+</li>
+<li>堆的优点：可以动态分配内存大小，生存期也不必事先告诉编译器。<ul>
+<li>缺点是：存取速度较慢。</li>
+</ul>
+</li>
+</ul>
+<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><p>Java 的数据类型主要包括：基本数据类型和引用数据类型。</p>
+<blockquote>
+<p>基本数据类型  </p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>数据类型</th>
+<th>字节</th>
+<th>默认值</th>
+<th>表达范围</th>
+<th>包装类</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>byte（字节型）</td>
+<td>1</td>
+<td>0</td>
+<td>-128~127</td>
+<td>java.lang.Byte(父类java.lang.Number)</td>
+</tr>
+<tr>
+<td>short（短整型）</td>
+<td>2</td>
+<td>0</td>
+<td>-32768～32767</td>
+<td>java.lang.Short(父类java.lang.Number)</td>
+</tr>
+<tr>
+<td>int（整形）</td>
+<td>4</td>
+<td>0</td>
+<td>-2147483648～2147483647</td>
+<td>java.lang.Integer(父类java.lang.Number)</td>
+</tr>
+<tr>
+<td>long（长整型）</td>
+<td>8</td>
+<td>0L</td>
+<td>-9223372036854775808 ~ 9223372036854775807</td>
+<td>java.lang.Long(父类java.lang.Number)</td>
+</tr>
+<tr>
+<td>float（单精度浮点型）</td>
+<td>4</td>
+<td>0.0F</td>
+<td>-3.4E38～3.4E38</td>
+<td>java.lang.Float(父类java.lang.Number)</td>
+</tr>
+<tr>
+<td>double（双精度浮点型）</td>
+<td>8</td>
+<td>0.0</td>
+<td>-1.7E308～1.7E308</td>
+<td>java.lang.Double(父类java.lang.Number)</td>
+</tr>
+<tr>
+<td>boolean（布尔型）</td>
+<td>1</td>
+<td>false</td>
+<td>true或false</td>
+<td>java.lang.Boolean(父类java.lang.Object)</td>
+</tr>
+<tr>
+<td>char（字符型）</td>
+<td>2</td>
+<td>‘\u0000’</td>
+<td>从字符型对应的整型数来划分，其表示范围是0～65535</td>
+<td>java.lang.Character(父类java.lang.Object)</td>
+</tr>
+</tbody></table>
+<p>  （提示：八种包装类都属于引用数据类型，包装类的存在是为了满足多态的需求，方便我们的开发。）</p>
+<blockquote>
+<p>引用数据类型</p>
+</blockquote>
+<ul>
+<li><p>Java 中的引用数据类型建立在基本数据类型的基础上，包括数组、类和接口。</p>
+</li>
+<li><p>需要注意的是，Java 语言中不支持 C++ 中的指针类型（*）、结构类型（struct）、联合类型（union）和枚举类型（enum）。</p>
+</li>
+<li><p>通俗意义上来讲，引用数据类型，是对于实例、数组对象地址的引用。实际上引用数据类型就是一个指针，只是 Java 语言中不再使用指针这个说法。</p>
+</li>
+<li><p>引用类型还有一种特殊的空类型(null type)，这种类型没有名字，所以无法声明或转换成一个null类型的变量。注：空类型只针对于引用类型。</p>
+</li>
+</ul>
+<h2 id="参见"><a href="#参见" class="headerlink" title="参见"></a>参见</h2><ul>
+<li><a href="https://blog.csdn.net/weixin_36431280/article/details/78430786">基本数据类型</a></li>
+<li><a href="http://c.biancheng.net/view/5672.html">引用数据类型</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>日常学习</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo搭建博客汇总</title>
+    <url>/2021/02/12/hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%B1%87%E6%80%BB/</url>
     <content><![CDATA[<p><img src="https://browser9.qhimg.com/bdm/1280_800_85/t01a5211bae6d28520e.jpg" alt="图片来源于网络"></p>
 <h1 id="hexo-搭建博客汇总"><a href="#hexo-搭建博客汇总" class="headerlink" title="hexo 搭建博客汇总"></a>hexo 搭建博客汇总</h1><h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><blockquote>
 <p>一台普通而又及其正常的电脑/笔记本</p>
@@ -145,195 +334,6 @@
       </categories>
       <tags>
         <tag>博客</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Java的数据类型</title>
-    <url>/2021/02/21/Java%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</url>
-    <content><![CDATA[<p><img src="https://p9.qhimg.com/bdm/1280_800_85/t01b7aab4ac9d0afe81.jpg" alt="图片来源于网络"></p>
-<h1 id="Java-的数据类型"><a href="#Java-的数据类型" class="headerlink" title="Java 的数据类型"></a>Java 的数据类型</h1><h2 id="Java-数据类型在JVM中的分布"><a href="#Java-数据类型在JVM中的分布" class="headerlink" title="Java 数据类型在JVM中的分布"></a>Java 数据类型在JVM中的分布</h2><blockquote>
-<p>JVM 数据将内存大致分为：堆区，栈区，方法区</p>
-</blockquote>
-<ul>
-<li><p>Java 数据，变量大多数存放在堆栈中。</p>
-<ul>
-<li><p>其中，栈区主要存放局部变量，对象声明的引用等。</p>
-</li>
-<li><p>堆区主要存放 new 关键字创建的类（包含成员变量）和数组等.</p>
-</li>
-</ul>
-</li>
-<li><p>方法区则主要储存被JVM加载过的类信息，常量，以及编译过的代码片段等。</p>
-</li>
-</ul>
-<blockquote>
-<p>堆与栈的优缺点</p>
-</blockquote>
-<ul>
-<li>栈的优点：栈数据可以共享，存取速度比堆快。<ul>
-<li>缺点是：存在栈中数据大小与生命周期是确定的。</li>
-</ul>
-</li>
-<li>堆的优点：可以动态分配内存大小，生存期也不必事先告诉编译器。<ul>
-<li>缺点是：存取速度较慢。</li>
-</ul>
-</li>
-</ul>
-<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><p>Java 的数据类型主要包括：基本数据类型和引用数据类型。</p>
-<blockquote>
-<p>基本数据类型  </p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th>数据类型</th>
-<th>字节</th>
-<th>默认值</th>
-<th>表达范围</th>
-<th>包装类</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>byte（字节型）</td>
-<td>1</td>
-<td>0</td>
-<td>-128~127</td>
-<td>java.lang.Byte(父类java.lang.Number)</td>
-</tr>
-<tr>
-<td>short（短整型）</td>
-<td>2</td>
-<td>0</td>
-<td>-32768～32767</td>
-<td>java.lang.Short(父类java.lang.Number)</td>
-</tr>
-<tr>
-<td>int（整形）</td>
-<td>4</td>
-<td>0</td>
-<td>-2147483648～2147483647</td>
-<td>java.lang.Integer(父类java.lang.Number)</td>
-</tr>
-<tr>
-<td>long（长整型）</td>
-<td>8</td>
-<td>0L</td>
-<td>-9223372036854775808 ~ 9223372036854775807</td>
-<td>java.lang.Long(父类java.lang.Number)</td>
-</tr>
-<tr>
-<td>float（单精度浮点型）</td>
-<td>4</td>
-<td>0.0F</td>
-<td>-3.4E38～3.4E38</td>
-<td>java.lang.Float(父类java.lang.Number)</td>
-</tr>
-<tr>
-<td>double（双精度浮点型）</td>
-<td>8</td>
-<td>0.0</td>
-<td>-1.7E308～1.7E308</td>
-<td>java.lang.Double(父类java.lang.Number)</td>
-</tr>
-<tr>
-<td>boolean（布尔型）</td>
-<td>1</td>
-<td>false</td>
-<td>true或false</td>
-<td>java.lang.Boolean(父类java.lang.Object)</td>
-</tr>
-<tr>
-<td>char（字符型）</td>
-<td>2</td>
-<td>‘\u0000’</td>
-<td>从字符型对应的整型数来划分，其表示范围是0～65535</td>
-<td>java.lang.Character(父类java.lang.Object)</td>
-</tr>
-</tbody></table>
-<p>  （提示：八种包装类都属于引用数据类型，包装类的存在是为了满足多态的需求，方便我们的开发。）</p>
-<blockquote>
-<p>引用数据类型</p>
-</blockquote>
-<ul>
-<li><p>Java 中的引用数据类型建立在基本数据类型的基础上，包括数组、类和接口。</p>
-</li>
-<li><p>需要注意的是，Java 语言中不支持 C++ 中的指针类型（*）、结构类型（struct）、联合类型（union）和枚举类型（enum）。</p>
-</li>
-<li><p>通俗意义上来讲，引用数据类型，是对于实例、数组对象地址的引用。实际上引用数据类型就是一个指针，只是 Java 语言中不再使用指针这个说法。</p>
-</li>
-<li><p>引用类型还有一种特殊的空类型(null type)，这种类型没有名字，所以无法声明或转换成一个null类型的变量。注：空类型只针对于引用类型。</p>
-</li>
-</ul>
-<h2 id="参见"><a href="#参见" class="headerlink" title="参见"></a>参见</h2><ul>
-<li><a href="https://blog.csdn.net/weixin_36431280/article/details/78430786">基本数据类型</a></li>
-<li><a href="http://c.biancheng.net/view/5672.html">引用数据类型</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>日常学习</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Java_String类概述</title>
-    <url>/2021/03/01/Java-String%E7%B1%BB%E6%A6%82%E8%BF%B0/</url>
-    <content><![CDATA[<p><img src="https://browser9.qhimg.com/bdm/1280_800_85/t01e4c1a6fad8c7be4b.jpg" alt="图片源于网络"></p>
-<h1 id="Java-String类详解"><a href="#Java-String类详解" class="headerlink" title="Java String类详解"></a>Java String类详解</h1><h2 id="String-类概述"><a href="#String-类概述" class="headerlink" title="String 类概述"></a><strong>String</strong> 类概述</h2><blockquote>
-<p>String字符串</p>
-</blockquote>
-<ul>
-<li><p><strong>String</strong> 是 Java JDK 中内置的一种类：<strong>java.lang.String</strong>。</p>
-<ol>
-<li>String 表示字符串类型，属于引用数据类型。</li>
-<li>Java 程序中所有字符串字面值都作为 String 类的对象。（例如: “abc” , “defg” , “hello world!”），这是三个String对象。</li>
-<li>Java 规定，字符串是常量——他们的值在创建之后不能更改的，（”abd” 不能变成 “abcd”）。</li>
-<li><del>在 JDK 中规定，双引号括起来的字符串都是直接存储在 <strong>JVM 方法区</strong> 的字符串常量池中</del>。</li>
-<li>JDK 7.0后，字符串常量池转移到 <strong>JVM 堆区</strong> 中。</li>
-</ol>
-</li>
-</ul>
-<blockquote>
-<p>通过图片例子认识字符串常量池<strong>Cache</strong></p>
-</blockquote>
-<ul>
-<li><p>String 对象一旦创建不可变</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">String s1 = <span class="string">&quot;abc&quot;</span>;</span><br><span class="line">String s2 = <span class="string">&quot;abc&quot;</span>;</span><br></pre></td></tr></table></figure>
-<p>由于字符串常量，被存储于字符串常量池，所以上述例子当中只出现一个对象 “abc”。</p>
-<p><img src="https://uploadbeta.com/share-image/gwy" alt="图片来自网络"></p>
-</li>
-<li><p>String 对象一般不会被 gc 回收</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">String s1 = <span class="string">&quot;abc&quot;</span>;</span><br><span class="line">String s2 = s1 + <span class="string">&quot;de&quot;</span>;</span><br></pre></td></tr></table></figure>
-<p>由于字符串常量，一旦创建不可更改的特性，并且储存在字符串常量池中，原来废弃的常量不会被 gc 回收，所以此例中出现三个对象 “abc”,”de”,”abcde”。</p>
-<p><img src="https://uploadbeta.com/share-image/gwz" alt="图片来自网络"></p>
-</li>
-<li><p>new出来的对象都在堆区</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">String s3 = <span class="keyword">new</span> String(<span class="string">&quot;de&quot;</span>);</span><br></pre></td></tr></table></figure>
-<p>由于字符串对象存储在字符串常量池，位于方法区中，而new出来的对象都储存在堆区，所以会出现s3指向位于堆区的对象内的byte数组指向位于方法区字符串常量池内的 “bc”，（解释起来果然麻烦，看图！）。</p>
-<p><img src="https://uploadbeta.com/share-image/gwA" alt="图片来自网络"></p>
-</li>
-</ul>
-<blockquote>
-<p>由于字符串常量池的种种特性，会出现下列“看似不可能”</p>
-</blockquote>
-<ul>
-<li><p>字面值相同，对象地址不同</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">String s1 = <span class="string">&quot;abc&quot;</span>;</span><br><span class="line">String s2 = <span class="keyword">new</span> String(<span class="string">&quot;abc&quot;</span>);</span><br><span class="line">System.out.println(s1 == s2);  <span class="comment">//false</span></span><br></pre></td></tr></table></figure>
-<p>  尽管从字面值来看，s1 确实等于 s2。但是 s1 指向的是方法区，而 s2 指向的是堆区对象，对象内再指向方法区，二者截然不同。</p>
-</li>
-<li><p>不明白</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">String s1 = <span class="string">&quot;abc&quot;</span>;</span><br><span class="line">String s2 = <span class="string">&quot;ab&quot;</span>;</span><br><span class="line">System.out.println(s2 + <span class="string">&quot;c&quot;</span> == s1);  <span class="comment">//false</span></span><br></pre></td></tr></table></figure>
-<p> 这个例子是我在进行实验时意外发现的，原本在<strong>自动装箱</strong>的情况下，s2 + “c” 就应该是 “abc”，但是答案确实false。</p>
-<p> 百思不得其解，留待上课时询问老师。</p>
-</li>
-</ul>
-<h2 id="String-类常用方法"><a href="#String-类常用方法" class="headerlink" title="String 类常用方法"></a>String 类常用方法</h2>]]></content>
-      <categories>
-        <category>日常学习</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
       </tags>
   </entry>
 </search>
