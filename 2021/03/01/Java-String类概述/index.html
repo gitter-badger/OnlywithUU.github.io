@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="google-site-verification" content="TZE0rZyIqLl10trYu3BWBWa1Vmz6HFwhb2OcNEK4u-s" />
+     <link rel="shortcut icon" href= /img/favicon.png >
+    <title>
+        OnlywithUU
+    </title>
+    <meta name="description" content= Record,Study,Life >
+    <meta name="keywords" content= Record,Study,Life >
+    
+<link rel="stylesheet" href="/libs/highlight/styles/monokai-sublime.css">
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.3.0"></head>
+<body id="bodyx">
+    <div class="hd posts">
+    <a href="/index.html"><i class="fa fa-home
+ replay-btn" aria-hidden="true"></i></a>
+    <div class="post-title">
+        <p>
+            Java_String类概述
+        </p>
+        <hr>
+    </div>
+    <div class="post-content">
+        <p><img src="https://browser9.qhimg.com/bdm/1280_800_85/t01e4c1a6fad8c7be4b.jpg" alt="图片源于网络"></p>
+<h1 id="Java-String类详解"><a href="#Java-String类详解" class="headerlink" title="Java String类详解"></a>Java String类详解</h1><h2 id="String-类概述"><a href="#String-类概述" class="headerlink" title="String 类概述"></a><strong>String</strong> 类概述</h2><blockquote>
+<p>String字符串</p>
+</blockquote>
+<ul>
+<li><p><strong>String</strong> 是 Java JDK 中内置的一种类：<strong>java.lang.String</strong>。</p>
+<ol>
+<li>String 表示字符串类型，属于引用数据类型。</li>
+<li>Java 程序中所有字符串字面值都作为 String 类的对象。（例如: “abc” , “defg” , “hello world!”），这是三个String对象。</li>
+<li>Java 规定，字符串是常量——他们的值在创建之后不能更改的，（”abd” 不能变成 “abcd”）。</li>
+<li><del>在 JDK 中规定，双引号括起来的字符串都是直接存储在 <strong>JVM 方法区</strong> 的字符串常量池中</del>。</li>
+<li>JDK 7.0后，字符串常量池转移到 <strong>JVM 堆区</strong> 中。</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p>通过图片例子认识字符串常量池<strong>Cache</strong></p>
+</blockquote>
+<ul>
+<li><p>String 对象一旦创建不可变</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String s1 = <span class="string">&quot;abc&quot;</span>;</span><br><span class="line">String s2 = <span class="string">&quot;abc&quot;</span>;</span><br></pre></td></tr></table></figure>
+<p>由于字符串常量，被存储于字符串常量池，所以上述例子当中只出现一个对象 “abc”。</p>
+<p><img src="https://uploadbeta.com/share-image/gwy" alt="图片来自网络"></p>
+</li>
+<li><p>String 对象一般不会被 gc 回收</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String s1 = <span class="string">&quot;abc&quot;</span>;</span><br><span class="line">String s2 = s1 + <span class="string">&quot;de&quot;</span>;</span><br></pre></td></tr></table></figure>
+<p>由于字符串常量，一旦创建不可更改的特性，并且储存在字符串常量池中，原来废弃的常量不会被 gc 回收，所以此例中出现三个对象 “abc”,”de”,”abcde”。</p>
+<p><img src="https://uploadbeta.com/share-image/gwz" alt="图片来自网络"></p>
+</li>
+<li><p>new出来的对象都在堆区</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String s3 = <span class="keyword">new</span> String(<span class="string">&quot;de&quot;</span>);</span><br></pre></td></tr></table></figure>
+<p>由于字符串对象存储在字符串常量池，位于方法区中，而new出来的对象都储存在堆区，所以会出现s3指向位于堆区的对象内的byte数组指向位于方法区字符串常量池内的 “bc”，（解释起来果然麻烦，看图！）。</p>
+<p><img src="https://uploadbeta.com/share-image/gwA" alt="图片来自网络"></p>
+</li>
+</ul>
+<blockquote>
+<p>由于字符串常量池的种种特性，会出现下列“看似不可能”</p>
+</blockquote>
+<ol>
+<li><pre><code class="Java">String s1 = &quot;abc&quot;;
+String s2 = new String(&quot;abc&quot;);
+System.out.println(s1 == s2);  //false
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">    尽管从字面值来看，s1 确实等于 s2。但是 s1 指向的是方法区，而 s2 指向的是堆区对象，对象内再指向方法区，二者截然不同。</span><br><span class="line"></span><br><span class="line">2. &#96;&#96;&#96;Java</span><br><span class="line">   String s1 &#x3D; &quot;abc&quot;;</span><br><span class="line">   String s2 &#x3D; &quot;ab&quot;;</span><br><span class="line">   System.out.println(s2 + &quot;c&quot; &#x3D;&#x3D; s1);  &#x2F;&#x2F;false</span><br></pre></td></tr></table></figure>
+这个例子是我在进行实验时意外发现的，原本在**自动装箱**的情况下，s2 + &quot;c&quot; 就应该是 &quot;abc&quot;，但是答案确实false。
+
+百思不得其解，留待上课时询问老师。
+</code></pre>
+</li>
+</ol>
+<h2 id="String-类常用方法"><a href="#String-类常用方法" class="headerlink" title="String 类常用方法"></a>String 类常用方法</h2>
+    </div>
+
+    
+        <hr class="fhr">
+        <div id="vcomments"></div>
+    
+</div>
+    <div class="footer" id="footer">
+    <p><h4>Copyright © 2020 | Author: OnlywithUU | Theme By <a class="theme-author" target="_blank" rel="noopener" href="https://github.com/Xunzhuo/hexo-theme-coder" style="font-size:14px; color: #969696">Coder</a></h4>
+    <label class="el-switch el-switch-blue el-switch-sm" style="vertical-align: sub;">
+        <input type="checkbox" name="switch" id="update_style">
+        <span class="el-switch-style"></span>
+    </label>
+    <!--         <script type="text/javascript">
+    var cnzz_protocol = (("https:" == document.location.protocol) ? "https://" : "http://");
+    document.write(unescape("%3Cspan id='cnzz_stat_icon_1278548644'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "v1.cnzz.com/stat.php%3Fid%3D1278548644%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+    </script> -->
+</p>
+</div>
+<input type="hidden" id="web_style" value="black">
+<input type="hidden" id="valine_appid" value="DycHxN8BHiSc6U81ymD4mjpX-gzGzoHsz">
+<input type="hidden" id="valine_appKey" value="cxaY1YA3nfPUpRhdj9BqWr8z">
+
+<script src="/libs/jquery.min.js"></script>
+
+
+<script src="/libs/highlight/highlight.pack.js"></script>
+
+<script src='//cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
+
+<script src="/js/js.js"></script>
+
+<style type="text/css">
+.v * {
+color: #698fca;
+}
+.v .vlist .vcard .vhead .vsys {
+color: #3a3e4a;
+}
+.v .vlist .vcard .vh .vmeta .vat {
+color: #638fd5;
+}
+.v .vlist .vcard .vhead .vnick {
+color: #6ba1ff;
+}
+.v a {
+color: #8696b1;
+}
+.v .vlist .vcard .vhead .vnick:hover {
+color: #669bfc;
+}
+</style>
+    <script type="text/javascript" color="173,174,173" opacity='1' zIndex="-2" count="99" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+</body>
+</html>
+
+<!--浏览器搞笑标题-->
+<script type="text/javascript" src="\js\FunnyTitle.js"></script>
