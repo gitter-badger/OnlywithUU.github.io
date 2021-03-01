@@ -71,17 +71,17 @@
 <blockquote>
 <p>由于字符串常量池的种种特性，会出现下列“看似不可能”</p>
 </blockquote>
-<ol>
-<li><pre><code class="Java">String s1 = &quot;abc&quot;;
-String s2 = new String(&quot;abc&quot;);
-System.out.println(s1 == s2);  //false
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">    尽管从字面值来看，s1 确实等于 s2。但是 s1 指向的是方法区，而 s2 指向的是堆区对象，对象内再指向方法区，二者截然不同。</span><br><span class="line"></span><br><span class="line">2. &#96;&#96;&#96;Java</span><br><span class="line">   String s1 &#x3D; &quot;abc&quot;;</span><br><span class="line">   String s2 &#x3D; &quot;ab&quot;;</span><br><span class="line">   System.out.println(s2 + &quot;c&quot; &#x3D;&#x3D; s1);  &#x2F;&#x2F;false</span><br></pre></td></tr></table></figure>
-这个例子是我在进行实验时意外发现的，原本在**自动装箱**的情况下，s2 + &quot;c&quot; 就应该是 &quot;abc&quot;，但是答案确实false。
-
-百思不得其解，留待上课时询问老师。
-</code></pre>
+<ul>
+<li><p>字面值相同，对象地址不同</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String s1 = <span class="string">&quot;abc&quot;</span>;</span><br><span class="line">String s2 = <span class="keyword">new</span> String(<span class="string">&quot;abc&quot;</span>);</span><br><span class="line">System.out.println(s1 == s2);  <span class="comment">//false</span></span><br></pre></td></tr></table></figure>
+<p>  尽管从字面值来看，s1 确实等于 s2。但是 s1 指向的是方法区，而 s2 指向的是堆区对象，对象内再指向方法区，二者截然不同。</p>
 </li>
-</ol>
+<li><p>不明白</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String s1 = <span class="string">&quot;abc&quot;</span>;</span><br><span class="line">String s2 = <span class="string">&quot;ab&quot;</span>;</span><br><span class="line">System.out.println(s2 + <span class="string">&quot;c&quot;</span> == s1);  <span class="comment">//false</span></span><br></pre></td></tr></table></figure>
+<p> 这个例子是我在进行实验时意外发现的，原本在<strong>自动装箱</strong>的情况下，s2 + “c” 就应该是 “abc”，但是答案确实false。</p>
+<p> 百思不得其解，留待上课时询问老师。</p>
+</li>
+</ul>
 <h2 id="String-类常用方法"><a href="#String-类常用方法" class="headerlink" title="String 类常用方法"></a>String 类常用方法</h2>
     </div>
 
