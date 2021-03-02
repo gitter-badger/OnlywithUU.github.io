@@ -767,7 +767,7 @@ System.out.println(s2 + "c" == s1);  //false<span aria-hidden="true" class="line
                         <img src="https://cdn.jsdelivr.net/gh/skyls03/skyls03.github.io/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
                     </div>
                     <div id="wechat">
-                        <img src="https://cdn.jsdelivr.net/gh/skyls03/skyls03.github.io/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                        <img src="https://cdn.jsdelivr.net/gh/skyls03/skyls03.github.io/medias/reward/wechat.jpg" class="reward-img" alt="微信打赏二维码">
                     </div>
                 </div>
             </div>
@@ -1256,7 +1256,7 @@ System.out.println(s2 + "c" == s1);  //false<span aria-hidden="true" class="line
             contentSelector: '#articleContent',
             headingsOffset: -($(window).height() * 0.4 - 45),
             collapseDepth: Number('0'),
-            headingSelector: 'h2, h3, h4, >'
+            headingSelector: 'h1, h2, h3, h4'
         });
 
         // modify the toc link href to support Chinese.
@@ -1268,7 +1268,7 @@ System.out.println(s2 + "c" == s1);  //false<span aria-hidden="true" class="line
 
         // modify the heading title id to support Chinese.
         i = 0;
-        $('#articleContent').children('h2, h3, h4, >').each(function () {
+        $('#articleContent').children('h1, h2, h3, h4').each(function () {
             $(this).attr('id', tocHeading + (++i));
         });
 
