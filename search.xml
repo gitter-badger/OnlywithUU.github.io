@@ -1,73 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Java_String类概述</title>
-    <url>/posts/3e1d.html</url>
-    <content><![CDATA[<p><img src="https://browser9.qhimg.com/bdm/1280_800_85/t01e4c1a6fad8c7be4b.jpg" alt="图片源于网络"></p>
-<a id="more"></a>
-<h1 id="Java-String类详解"><a href="#Java-String类详解" class="headerlink" title="Java String类详解"></a>Java String类详解</h1><h2 id="String-类概述"><a href="#String-类概述" class="headerlink" title="String 类概述"></a><strong>String</strong> 类概述</h2><blockquote>
-<p>String字符串</p>
-</blockquote>
-<ul>
-<li><p><strong>String</strong> 是 Java JDK 中内置的一种类：<strong>java.lang.String</strong>。</p>
-<ol>
-<li>String 表示字符串类型，属于引用数据类型。</li>
-<li>Java 程序中所有字符串字面值都作为 String 类的对象。（例如: “abc” , “defg” , “hello world!”），这是三个String对象。</li>
-<li>Java 规定，字符串是常量——他们的值在创建之后不能更改的，（”abd” 不能变成 “abcd”）。</li>
-<li><del>在 JDK 中规定，双引号括起来的字符串都是直接存储在 <strong>JVM 方法区</strong> 的字符串常量池中</del>。</li>
-<li>JDK 7.0后，字符串常量池转移到 <strong>JVM 堆区</strong> 中。</li>
-</ol>
-</li>
-</ul>
-<blockquote>
-<p>通过图片例子认识字符串常量池<strong>Cache</strong></p>
-</blockquote>
-<ul>
-<li><p>String 对象一旦创建不可变</p>
-<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">String s1 = "abc";
-String s2 = "abc";<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>由于字符串常量，被存储于字符串常量池，所以上述例子当中只出现一个对象 “abc”。</p>
-<p><img src="https://uploadbeta.com/share-image/gwy" alt="图片来自网络"></p>
-</li>
-<li><p>String 对象一般不会被 gc 回收</p>
-<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">String s1 = "abc";
-String s2 = s1 + "de";<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>由于字符串常量，一旦创建不可更改的特性，并且储存在字符串常量池中，原来废弃的常量不会被 gc 回收，所以此例中出现三个对象 “abc”,”de”,”abcde”。</p>
-<p><img src="https://uploadbeta.com/share-image/gwz" alt="图片来自网络"></p>
-</li>
-<li><p>new出来的对象都在堆区</p>
-<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">String s3 = new String("de");<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>由于字符串对象存储在字符串常量池，位于方法区中，而new出来的对象都储存在堆区，所以会出现s3指向位于堆区的对象内的byte数组指向位于方法区字符串常量池内的 “bc”，（解释起来果然麻烦，看图！）。</p>
-<p><img src="https://uploadbeta.com/share-image/gwA" alt="图片来自网络"></p>
-</li>
-</ul>
-<blockquote>
-<p>由于字符串常量池的种种特性，会出现下列“看似不可能”</p>
-</blockquote>
-<ul>
-<li><p>字面值相同，对象地址不同</p>
-<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">String s1 = "abc";
-String s2 = new String("abc");
-System.out.println(s1 == s2);  //false<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p>  尽管从字面值来看，s1 确实等于 s2。但是 s1 指向的是方法区，而 s2 指向的是堆区对象，对象内再指向方法区，二者截然不同。</p>
-</li>
-<li><p>不明白</p>
-<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">String s1 = "abc";
-String s2 = "ab";
-System.out.println(s2 + "c" == s1);  //false<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p> 这个例子是我在进行实验时意外发现的，原本在<strong>自动装箱</strong>的情况下，s2 + “c” 就应该是 “abc”，但是答案确实false。</p>
-<p> 百思不得其解，留待上课时询问老师。</p>
-</li>
-</ul>
-<h2 id="String-类常用方法"><a href="#String-类常用方法" class="headerlink" title="String 类常用方法"></a>String 类常用方法</h2>]]></content>
-      <categories>
-        <category>日常学习</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Java的数据类型</title>
     <url>/posts/251.html</url>
     <content><![CDATA[<p><img src="https://p9.qhimg.com/bdm/1280_800_85/t01b7aab4ac9d0afe81.jpg" alt="图片来源于网络"></p>
@@ -190,6 +123,73 @@ System.out.println(s2 + "c" == s1);  //false<span aria-hidden="true" class="line
 <li><a href="http://c.biancheng.net/view/5672.html">引用数据类型</a></li>
 </ul>
 ]]></content>
+      <categories>
+        <category>日常学习</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java_String类概述</title>
+    <url>/posts/3e1d.html</url>
+    <content><![CDATA[<p><img src="https://browser9.qhimg.com/bdm/1280_800_85/t01e4c1a6fad8c7be4b.jpg" alt="图片源于网络"></p>
+<a id="more"></a>
+<h1 id="Java-String类详解"><a href="#Java-String类详解" class="headerlink" title="Java String类详解"></a>Java String类详解</h1><h2 id="String-类概述"><a href="#String-类概述" class="headerlink" title="String 类概述"></a><strong>String</strong> 类概述</h2><blockquote>
+<p>String字符串</p>
+</blockquote>
+<ul>
+<li><p><strong>String</strong> 是 Java JDK 中内置的一种类：<strong>java.lang.String</strong>。</p>
+<ol>
+<li>String 表示字符串类型，属于引用数据类型。</li>
+<li>Java 程序中所有字符串字面值都作为 String 类的对象。（例如: “abc” , “defg” , “hello world!”），这是三个String对象。</li>
+<li>Java 规定，字符串是常量——他们的值在创建之后不能更改的，（”abd” 不能变成 “abcd”）。</li>
+<li><del>在 JDK 中规定，双引号括起来的字符串都是直接存储在 <strong>JVM 方法区</strong> 的字符串常量池中</del>。</li>
+<li>JDK 7.0后，字符串常量池转移到 <strong>JVM 堆区</strong> 中。</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p>通过图片例子认识字符串常量池<strong>Cache</strong></p>
+</blockquote>
+<ul>
+<li><p>String 对象一旦创建不可变</p>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">String s1 = "abc";
+String s2 = "abc";<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>由于字符串常量，被存储于字符串常量池，所以上述例子当中只出现一个对象 “abc”。</p>
+<p><img src="https://uploadbeta.com/share-image/gwy" alt="图片来自网络"></p>
+</li>
+<li><p>String 对象一般不会被 gc 回收</p>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">String s1 = "abc";
+String s2 = s1 + "de";<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>由于字符串常量，一旦创建不可更改的特性，并且储存在字符串常量池中，原来废弃的常量不会被 gc 回收，所以此例中出现三个对象 “abc”,”de”,”abcde”。</p>
+<p><img src="https://uploadbeta.com/share-image/gwz" alt="图片来自网络"></p>
+</li>
+<li><p>new出来的对象都在堆区</p>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">String s3 = new String("de");<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>由于字符串对象存储在字符串常量池，位于方法区中，而new出来的对象都储存在堆区，所以会出现s3指向位于堆区的对象内的byte数组指向位于方法区字符串常量池内的 “bc”，（解释起来果然麻烦，看图！）。</p>
+<p><img src="https://uploadbeta.com/share-image/gwA" alt="图片来自网络"></p>
+</li>
+</ul>
+<blockquote>
+<p>由于字符串常量池的种种特性，会出现下列“看似不可能”</p>
+</blockquote>
+<ul>
+<li><p>字面值相同，对象地址不同</p>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">String s1 = "abc";
+String s2 = new String("abc");
+System.out.println(s1 == s2);  //false<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>  尽管从字面值来看，s1 确实等于 s2。但是 s1 指向的是方法区，而 s2 指向的是堆区对象，对象内再指向方法区，二者截然不同。</p>
+</li>
+<li><p>不明白</p>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">String s1 = "abc";
+String s2 = "ab";
+System.out.println(s2 + "c" == s1);  //false<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p> 这个例子是我在进行实验时意外发现的，原本在<strong>自动装箱</strong>的情况下，s2 + “c” 就应该是 “abc”，但是答案确实false。</p>
+<p> 百思不得其解，留待上课时询问老师。</p>
+</li>
+</ul>
+<h2 id="String-类常用方法"><a href="#String-类常用方法" class="headerlink" title="String 类常用方法"></a>String 类常用方法</h2>]]></content>
       <categories>
         <category>日常学习</category>
       </categories>
