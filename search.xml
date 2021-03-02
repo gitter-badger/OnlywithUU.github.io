@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>Java_String类概述</title>
-    <url>/2021/03/01/java-string-lei-gai-shu/</url>
+    <url>/posts/3e1d.html</url>
     <content><![CDATA[<p><img src="https://browser9.qhimg.com/bdm/1280_800_85/t01e4c1a6fad8c7be4b.jpg" alt="图片源于网络"></p>
 <a id="more"></a>
 <h1 id="Java-String类详解"><a href="#Java-String类详解" class="headerlink" title="Java String类详解"></a>Java String类详解</h1><h2 id="String-类概述"><a href="#String-类概述" class="headerlink" title="String 类概述"></a><strong>String</strong> 类概述</h2><blockquote>
@@ -69,7 +69,7 @@ System.out.println(s2 + "c" == s1);  //false<span aria-hidden="true" class="line
   </entry>
   <entry>
     <title>Java的数据类型</title>
-    <url>/2021/02/21/java-de-shu-ju-lei-xing/</url>
+    <url>/posts/251.html</url>
     <content><![CDATA[<p><img src="https://p9.qhimg.com/bdm/1280_800_85/t01b7aab4ac9d0afe81.jpg" alt="图片来源于网络"></p>
 <a id="more"></a>
 <h1 id="Java-的数据类型"><a href="#Java-的数据类型" class="headerlink" title="Java 的数据类型"></a>Java 的数据类型</h1><h2 id="Java-数据类型在JVM中的分布"><a href="#Java-数据类型在JVM中的分布" class="headerlink" title="Java 数据类型在JVM中的分布"></a>Java 数据类型在JVM中的分布</h2><blockquote>
@@ -199,7 +199,7 @@ System.out.println(s2 + "c" == s1);  //false<span aria-hidden="true" class="line
   </entry>
   <entry>
     <title>hexo搭建博客汇总</title>
-    <url>/2021/02/12/hexo-da-jian-bo-ke-hui-zong/</url>
+    <url>/posts/e7c9.html</url>
     <content><![CDATA[<p><img src="https://browser9.qhimg.com/bdm/1280_800_85/t01a5211bae6d28520e.jpg" alt="图片来源于网络"></p>
 <a id="more"></a>
 <h1 id="hexo-搭建博客汇总"><a href="#hexo-搭建博客汇总" class="headerlink" title="hexo 搭建博客汇总"></a>hexo 搭建博客汇总</h1><h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><blockquote>
