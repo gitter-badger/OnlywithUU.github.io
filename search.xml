@@ -1,8 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Java_String类概述</title>
+    <url>/2021/03/01/java-string-lei-gai-shu/</url>
+    <content><![CDATA[<p><img src="https://browser9.qhimg.com/bdm/1280_800_85/t01e4c1a6fad8c7be4b.jpg" alt="图片源于网络"></p>
+<a id="more"></a>
+<h1 id="Java-String类详解"><a href="#Java-String类详解" class="headerlink" title="Java String类详解"></a>Java String类详解</h1><h2 id="String-类概述"><a href="#String-类概述" class="headerlink" title="String 类概述"></a><strong>String</strong> 类概述</h2><blockquote>
+<p>String字符串</p>
+</blockquote>
+<ul>
+<li><p><strong>String</strong> 是 Java JDK 中内置的一种类：<strong>java.lang.String</strong>。</p>
+<ol>
+<li>String 表示字符串类型，属于引用数据类型。</li>
+<li>Java 程序中所有字符串字面值都作为 String 类的对象。（例如: “abc” , “defg” , “hello world!”），这是三个String对象。</li>
+<li>Java 规定，字符串是常量——他们的值在创建之后不能更改的，（”abd” 不能变成 “abcd”）。</li>
+<li><del>在 JDK 中规定，双引号括起来的字符串都是直接存储在 <strong>JVM 方法区</strong> 的字符串常量池中</del>。</li>
+<li>JDK 7.0后，字符串常量池转移到 <strong>JVM 堆区</strong> 中。</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p>通过图片例子认识字符串常量池<strong>Cache</strong></p>
+</blockquote>
+<ul>
+<li><p>String 对象一旦创建不可变</p>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">String s1 = "abc";
+String s2 = "abc";<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>由于字符串常量，被存储于字符串常量池，所以上述例子当中只出现一个对象 “abc”。</p>
+<p><img src="https://uploadbeta.com/share-image/gwy" alt="图片来自网络"></p>
+</li>
+<li><p>String 对象一般不会被 gc 回收</p>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">String s1 = "abc";
+String s2 = s1 + "de";<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>由于字符串常量，一旦创建不可更改的特性，并且储存在字符串常量池中，原来废弃的常量不会被 gc 回收，所以此例中出现三个对象 “abc”,”de”,”abcde”。</p>
+<p><img src="https://uploadbeta.com/share-image/gwz" alt="图片来自网络"></p>
+</li>
+<li><p>new出来的对象都在堆区</p>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">String s3 = new String("de");<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>由于字符串对象存储在字符串常量池，位于方法区中，而new出来的对象都储存在堆区，所以会出现s3指向位于堆区的对象内的byte数组指向位于方法区字符串常量池内的 “bc”，（解释起来果然麻烦，看图！）。</p>
+<p><img src="https://uploadbeta.com/share-image/gwA" alt="图片来自网络"></p>
+</li>
+</ul>
+<blockquote>
+<p>由于字符串常量池的种种特性，会出现下列“看似不可能”</p>
+</blockquote>
+<ul>
+<li><p>字面值相同，对象地址不同</p>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">String s1 = "abc";
+String s2 = new String("abc");
+System.out.println(s1 == s2);  //false<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>  尽管从字面值来看，s1 确实等于 s2。但是 s1 指向的是方法区，而 s2 指向的是堆区对象，对象内再指向方法区，二者截然不同。</p>
+</li>
+<li><p>不明白</p>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">String s1 = "abc";
+String s2 = "ab";
+System.out.println(s2 + "c" == s1);  //false<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p> 这个例子是我在进行实验时意外发现的，原本在<strong>自动装箱</strong>的情况下，s2 + “c” 就应该是 “abc”，但是答案确实false。</p>
+<p> 百思不得其解，留待上课时询问老师。</p>
+</li>
+</ul>
+<h2 id="String-类常用方法"><a href="#String-类常用方法" class="headerlink" title="String 类常用方法"></a>String 类常用方法</h2>]]></content>
+      <categories>
+        <category>日常学习</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Java的数据类型</title>
-    <url>/2021/02/21/Java%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</url>
+    <url>/2021/02/21/java-de-shu-ju-lei-xing/</url>
     <content><![CDATA[<p><img src="https://p9.qhimg.com/bdm/1280_800_85/t01b7aab4ac9d0afe81.jpg" alt="图片来源于网络"></p>
 <a id="more"></a>
 <h1 id="Java-的数据类型"><a href="#Java-的数据类型" class="headerlink" title="Java 的数据类型"></a>Java 的数据类型</h1><h2 id="Java-数据类型在JVM中的分布"><a href="#Java-数据类型在JVM中的分布" class="headerlink" title="Java 数据类型在JVM中的分布"></a>Java 数据类型在JVM中的分布</h2><blockquote>
@@ -127,73 +194,12 @@
         <category>日常学习</category>
       </categories>
       <tags>
-        <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Java_String类概述</title>
-    <url>/2021/03/01/Java-String%E7%B1%BB%E6%A6%82%E8%BF%B0/</url>
-    <content><![CDATA[<p><img src="https://browser9.qhimg.com/bdm/1280_800_85/t01e4c1a6fad8c7be4b.jpg" alt="图片源于网络"></p>
-<a id="more"></a>
-<h1 id="Java-String类详解"><a href="#Java-String类详解" class="headerlink" title="Java String类详解"></a>Java String类详解</h1><h2 id="String-类概述"><a href="#String-类概述" class="headerlink" title="String 类概述"></a><strong>String</strong> 类概述</h2><blockquote>
-<p>String字符串</p>
-</blockquote>
-<ul>
-<li><p><strong>String</strong> 是 Java JDK 中内置的一种类：<strong>java.lang.String</strong>。</p>
-<ol>
-<li>String 表示字符串类型，属于引用数据类型。</li>
-<li>Java 程序中所有字符串字面值都作为 String 类的对象。（例如: “abc” , “defg” , “hello world!”），这是三个String对象。</li>
-<li>Java 规定，字符串是常量——他们的值在创建之后不能更改的，（”abd” 不能变成 “abcd”）。</li>
-<li><del>在 JDK 中规定，双引号括起来的字符串都是直接存储在 <strong>JVM 方法区</strong> 的字符串常量池中</del>。</li>
-<li>JDK 7.0后，字符串常量池转移到 <strong>JVM 堆区</strong> 中。</li>
-</ol>
-</li>
-</ul>
-<blockquote>
-<p>通过图片例子认识字符串常量池<strong>Cache</strong></p>
-</blockquote>
-<ul>
-<li><p>String 对象一旦创建不可变</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">String s1 = <span class="string">&quot;abc&quot;</span>;</span><br><span class="line">String s2 = <span class="string">&quot;abc&quot;</span>;</span><br></pre></td></tr></table></figure>
-<p>由于字符串常量，被存储于字符串常量池，所以上述例子当中只出现一个对象 “abc”。</p>
-<p><img src="https://uploadbeta.com/share-image/gwy" alt="图片来自网络"></p>
-</li>
-<li><p>String 对象一般不会被 gc 回收</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">String s1 = <span class="string">&quot;abc&quot;</span>;</span><br><span class="line">String s2 = s1 + <span class="string">&quot;de&quot;</span>;</span><br></pre></td></tr></table></figure>
-<p>由于字符串常量，一旦创建不可更改的特性，并且储存在字符串常量池中，原来废弃的常量不会被 gc 回收，所以此例中出现三个对象 “abc”,”de”,”abcde”。</p>
-<p><img src="https://uploadbeta.com/share-image/gwz" alt="图片来自网络"></p>
-</li>
-<li><p>new出来的对象都在堆区</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">String s3 = <span class="keyword">new</span> String(<span class="string">&quot;de&quot;</span>);</span><br></pre></td></tr></table></figure>
-<p>由于字符串对象存储在字符串常量池，位于方法区中，而new出来的对象都储存在堆区，所以会出现s3指向位于堆区的对象内的byte数组指向位于方法区字符串常量池内的 “bc”，（解释起来果然麻烦，看图！）。</p>
-<p><img src="https://uploadbeta.com/share-image/gwA" alt="图片来自网络"></p>
-</li>
-</ul>
-<blockquote>
-<p>由于字符串常量池的种种特性，会出现下列“看似不可能”</p>
-</blockquote>
-<ul>
-<li><p>字面值相同，对象地址不同</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">String s1 = <span class="string">&quot;abc&quot;</span>;</span><br><span class="line">String s2 = <span class="keyword">new</span> String(<span class="string">&quot;abc&quot;</span>);</span><br><span class="line">System.out.println(s1 == s2);  <span class="comment">//false</span></span><br></pre></td></tr></table></figure>
-<p>  尽管从字面值来看，s1 确实等于 s2。但是 s1 指向的是方法区，而 s2 指向的是堆区对象，对象内再指向方法区，二者截然不同。</p>
-</li>
-<li><p>不明白</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">String s1 = <span class="string">&quot;abc&quot;</span>;</span><br><span class="line">String s2 = <span class="string">&quot;ab&quot;</span>;</span><br><span class="line">System.out.println(s2 + <span class="string">&quot;c&quot;</span> == s1);  <span class="comment">//false</span></span><br></pre></td></tr></table></figure>
-<p> 这个例子是我在进行实验时意外发现的，原本在<strong>自动装箱</strong>的情况下，s2 + “c” 就应该是 “abc”，但是答案确实false。</p>
-<p> 百思不得其解，留待上课时询问老师。</p>
-</li>
-</ul>
-<h2 id="String-类常用方法"><a href="#String-类常用方法" class="headerlink" title="String 类常用方法"></a>String 类常用方法</h2>]]></content>
-      <categories>
-        <category>日常学习</category>
-      </categories>
-      <tags>
         <tag>Java</tag>
       </tags>
   </entry>
   <entry>
     <title>hexo搭建博客汇总</title>
-    <url>/2021/02/12/hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%B1%87%E6%80%BB/</url>
+    <url>/2021/02/12/hexo-da-jian-bo-ke-hui-zong/</url>
     <content><![CDATA[<p><img src="https://browser9.qhimg.com/bdm/1280_800_85/t01a5211bae6d28520e.jpg" alt="图片来源于网络"></p>
 <a id="more"></a>
 <h1 id="hexo-搭建博客汇总"><a href="#hexo-搭建博客汇总" class="headerlink" title="hexo 搭建博客汇总"></a>hexo 搭建博客汇总</h1><h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><blockquote>
@@ -231,20 +237,22 @@
 <p>安装hexo框架</p>
 </blockquote>
 <ul>
-<li>由于国外的 npm 源不稳定，需要更换到淘宝源下载 hexo<br>  打开控制台输入如下命令  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ npm config set registry https:&#x2F;&#x2F;registry.npm.taobao.org npm info underscore</span><br></pre></td></tr></table></figure>
+<li>由于国外的 npm 源不稳定，需要更换到淘宝源下载 hexo<br>  打开控制台输入如下命令  <pre class="line-numbers language-none"><code class="language-none">$ npm config set registry https://registry.npm.taobao.org npm info underscore<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
   换源后，所有教程中的关于 npm 语句都可以替换成 cnpm</li>
-<li>安装 hexo 框架<br>  打开控制台输入如下命令  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<li>安装 hexo 框架<br>  打开控制台输入如下命令  <pre class="line-numbers language-none"><code class="language-none">$ npm install -g hexo-cli<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
   完成 hexo 框架的安装  </li>
 </ul>
 <blockquote>
 <p>测试 hexo 环境</p>
 </blockquote>
 <ul>
-<li>初始化 hexo<br>  新建一个空路径，例如 D:\blog 路径<br>  进入控制台并切换到该路径，输入如下命令  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ hexo init     # 创建 hexo 工程</span><br></pre></td></tr></table></figure>
+<li>初始化 hexo<br>  新建一个空路径，例如 D:\blog 路径<br>  进入控制台并切换到该路径，输入如下命令  <pre class="line-numbers language-none"><code class="language-none">$ hexo init     # 创建 hexo 工程<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
   之后你关于博客的所有操作都在此目录<br>  倘若出现失误/失控，直接删除该目录重新建一个空目录就好</li>
-<li>新建一篇文章<br>  打开控制台，进入你的博客路径，输入如下命令  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ hexo new helloworld   #新建一篇名为 helloworld 的文章</span><br></pre></td></tr></table></figure>
+<li>新建一篇文章<br>  打开控制台，进入你的博客路径，输入如下命令  <pre class="line-numbers language-none"><code class="language-none">$ hexo new helloworld   #新建一篇名为 helloworld 的文章<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
   helloworld 为你新建文章的名字</li>
-<li>运行<br>  打开控制台，进入你的博客路径，输入如下命令  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ hexo clean    # 清除缓存</span><br><span class="line">$ hexo generate # 生成静态文件，静态文件保存在 博客路径的 public 文件夹中</span><br><span class="line">$ hexo server   # 运行 hexo 服务器</span><br></pre></td></tr></table></figure>
+<li>运行<br>  打开控制台，进入你的博客路径，输入如下命令  <pre class="line-numbers language-none"><code class="language-none">$ hexo clean    # 清除缓存
+$ hexo generate # 生成静态文件，静态文件保存在 博客路径的 public 文件夹中
+$ hexo server   # 运行 hexo 服务器<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
   clean generate server等可以尝试使用首字母代替</li>
 <li>测试<br>  打开浏览器，在地址栏输入 localhost:4000<br>  如果网页成功打开，并且出现之前新建的文章，则环境搭建成功<br>  若无法打开，则搭建失败，重新来过即可</li>
 <li>使用 Ctrl+C 组合键退出 hexo 服务器  </li>
@@ -264,30 +272,36 @@
 <li>打开并登录 github </li>
 <li>新建一个和你用户名相同的仓库，仓库名后面加 .github.io ，这样部署到 github page 时，才会被 github 识别</li>
 <li>复制仓库的网址</li>
-<li>以记事本方式打开你的博客路径根目录下的 _config.yml 文件，滑倒最下面，将内容增加修改为：  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">    type: &#39;git&#39;</span><br><span class="line">    repository: &#39;warehouse add&#39;</span><br><span class="line">    branch: &#39;master&#39;</span><br></pre></td></tr></table></figure>
+<li>以记事本方式打开你的博客路径根目录下的 _config.yml 文件，滑倒最下面，将内容增加修改为：  <pre class="line-numbers language-none"><code class="language-none">deploy:
+    type: 'git'
+    repository: 'warehouse add'
+    branch: 'master'<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
   warehouse add 处填写刚刚复制的仓库地址  </li>
 </ul>
 <blockquote>
 <p>设置 git 账户信息</p>
 </blockquote>
 <ul>
-<li>打开控制台，输入如下命令  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ git config --global user.name &quot;yourname&quot;</span><br><span class="line">$ git config --global user.email &quot;youremail&quot;</span><br></pre></td></tr></table></figure>
+<li>打开控制台，输入如下命令  <pre class="line-numbers language-none"><code class="language-none">$ git config --global user.name "yourname"
+$ git config --global user.email "youremail"<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
   yourname 最好为 github 账号名<br>  youremail 最好为 github 绑定邮箱  </li>
 </ul>
 <blockquote>
 <p>安装 deploy 插件</p>
 </blockquote>
 <ul>
-<li>打开控制台，输入如下命令  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+<li>打开控制台，输入如下命令  <pre class="line-numbers language-none"><code class="language-none">$ npm install hexo-deployer-git --save<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
   即可成功安装deploy插件  </li>
 </ul>
 <blockquote>
 <p>部署到 github page</p>
 </blockquote>
 <ul>
-<li>打开控制台，进入你的博客路径，输入如下命令  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ hexo clean    # 清除缓存</span><br><span class="line">$ hexo generate # 生成静态文件，静态文件保存在 博客路径的 public 文件夹中</span><br><span class="line">$ hexo deploy   # 将生成的静态文件部署到 github page</span><br></pre></td></tr></table></figure>
+<li>打开控制台，进入你的博客路径，输入如下命令  <pre class="line-numbers language-none"><code class="language-none">$ hexo clean    # 清除缓存
+$ hexo generate # 生成静态文件，静态文件保存在 博客路径的 public 文件夹中
+$ hexo deploy   # 将生成的静态文件部署到 github page<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
   clean generate deploy 可以尝试使用首字母代替  </li>
-<li>注意：当hexo d命令，出现 <code>Not Found Deployer!</code> 时<br>  打开控制台，进入你的博客路径，输入如下命令  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ npm install --save hexo-deployer-git</span><br></pre></td></tr></table></figure>
+<li>注意：当hexo d命令，出现 <code>Not Found Deployer!</code> 时<br>  打开控制台，进入你的博客路径，输入如下命令  <pre class="line-numbers language-none"><code class="language-none">$ npm install --save hexo-deployer-git<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
   重新尝试则可成功</li>
 <li>注意，由于国内 github 的访问并不稳定，所以尽量减少 hexo deplyer 的次数  </li>
 </ul>
@@ -304,8 +318,8 @@
 <p>安装主题</p>
 </blockquote>
 <ul>
-<li>Code<br>  打开控制台，进入你的博客路径，输入如下命令  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ git clone 目标主题路径 目标目录</span><br></pre></td></tr></table></figure>
-  目标目录一般为 <code>/theme/主题名</code><br>  如果确实不知道如何安装主题，可以参考yilia主题的安装方法  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ git clone https:&#x2F;&#x2F;github.com&#x2F;litten&#x2F;hexo-theme-yilia.git themes&#x2F;yilia</span><br></pre></td></tr></table></figure>
+<li>Code<br>  打开控制台，进入你的博客路径，输入如下命令  <pre class="line-numbers language-none"><code class="language-none">$ git clone 目标主题路径 目标目录<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+  目标目录一般为 <code>/theme/主题名</code><br>  如果确实不知道如何安装主题，可以参考yilia主题的安装方法  <pre class="line-numbers language-none"><code class="language-none">$ git clone https://github.com/litten/hexo-theme-yilia.git themes/yilia<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
   参考：<a href="https://github.com/litten/hexo-theme-yilia/">Github yilia</a>  </li>
 <li>方法<br>  打开博客根目录下的 _config.yml 文件，将 theme: 后面更改为想要使用的主题名。</li>
 <li>注意<br>  在修改主题的同时，注意每个冒号后面都需要一个空格 —— 语法规范！  </li>
