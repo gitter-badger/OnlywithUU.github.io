@@ -93,34 +93,44 @@
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/tags" class="waves-effect waves-light">
+    <a href="/" class="waves-effect waves-light">
+
       
-      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
       
-      <span>标签</span>
+      <span>index</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
     </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/categories" class="waves-effect waves-light">
+    <ul class="sub-nav menus_item_child ">
       
-      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      <li>
+        <a href="/tags">
+          
+          <i class="fas fa-tags" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span></span>
+        </a>
+      </li>
       
-      <span>分类</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/archives" class="waves-effect waves-light">
+      <li>
+        <a href="/categories">
+          
+          <i class="fas fa-bookmark" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span></span>
+        </a>
+      </li>
       
-      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      <li>
+        <a href="/archives">
+          
+          <i class="fas fa-archive" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span></span>
+        </a>
+      </li>
       
-      <span>归档</span>
-    </a>
+    </ul>
     
   </li>
   
@@ -219,34 +229,46 @@
         
         <li class="m-nav-item">
 	  
-		<a href="/tags" class="waves-effect waves-light">
+		<a href="javascript:;">
 			
-			    <i class="fa-fw fas fa-tags"></i>
+				<i class="fa-fw fas fa-home"></i>
 			
-			标签
+			index
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
 		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/categories" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-bookmark"></i>
-			
-			分类
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/archives" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-archive"></i>
-			
-			归档
-		</a>
+            <ul  style="background: #00ffff;" >
+              
+                <li>
+
+                  <a href="/tags " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-tags" style="position: absolute;left:50px" ></i>
+			      
+		          <span></span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/categories " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-bookmark" style="position: absolute;left:50px" ></i>
+			      
+		          <span></span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/archives " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-archive" style="position: absolute;left:50px" ></i>
+			      
+		          <span></span>
+                  </a>
+                </li>
+              
+            </ul>
           
         </li>
         
@@ -398,59 +420,17 @@
             <div class="description center-align">
                 
                 <span id="subtitle"></span>
-                <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
-                <script>
+                    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
+                    <script>
                     var typed = new Typed("#subtitle", {
-                        strings: [ 
-                            
-                                "从来没有真正的绝境, 只有心灵的迷途。",
-                            
-                                "Never really desperate, only the lost of the soul.",
-                            
-                                "志之所向，金石为开，谁能御之。",
-                            
-                                "花开不是为了花落，而是为了开的更加灿烂！",
-                            
-                                "没有伞的孩子必须努力奔跑。",
-                            
-                                "欲望以提升热忱，毅力以磨平高山。",
-                            
-                                "如果放弃太早，你永远都不知道自己会错过什么。",
-                            
-                                "没有礁石，就没有美丽的浪花；没有挫折，就没有壮丽的人生。",
-                            
-                                "弱小和无知不是生存的障碍，傲慢才是。",
-                            
-                                "失去人性，失去很多；失去兽性，失去一切。",
-                            
-                                "藏好自己，做好清理。",
-                            
-                                "不要返航，这里不是家！",
-                            
-                                "像坟墓一样简洁！",
-                            
-                                "没有救世的能力不是你的错，但给世界以希望后又打碎它就是一种不可饶恕的罪恶。",
-                            
-                                "黑，真他妈的黑啊！",
-                            
-                                "给岁月以文明，而不是给文明以岁月。",
-                            
-                                "Men always remember love because of romance only. ———— Marlboro",
-                            
-                                "光锥之内就是命运。",
-                            
-                                "妈妈，我将变成一只萤火虫。",
-                            
-                                "空不是无，空是一种存在，你得用空这种存在填满自己。",
-                            
-                        ],
-                        startDelay: 250,
-                        typeSpeed: 120,
-                        loop: true,
-                        backSpeed: 90,
-                        showCursor: true
-                    });
-                </script>
+                            strings: ['',''],
+                            startDelay: 250,
+                            typeSpeed: 120,
+                            loop: true,
+                            backSpeed: 90,
+                            showCursor: true
+                        });
+                    </script>
                 
             </div>
         </div>
@@ -473,7 +453,7 @@
 
                 
                     <a href="https://github.com/OnlywithUU" class="waves-effect waves-light btn" target="_blank">
-                        <i class="fab fa-github"></i>My Github
+                        <i class="fas fa-github"></i>My Github
                     </a>
                 
             </div>
@@ -537,29 +517,6 @@
         
             
             <div class="carousel-item amber white-text carousel-post bg-cover"
-                 style="background-image: url('https://p9.qhimg.com/bdm/1280_800_85/t01b7aab4ac9d0afe81.jpg');">
-                <div class="container">
-                    <div class="row">
-                        <div class="col s10 offset-s1">
-                            <div class="title center-align">Java的数据类型</div>
-                            <div class="description center-align">
-                                
-                                    Java 数据类型简述。
-                                
-                            </div>
-                            <div class="cover-btns">
-                                <a href="/posts/251.html" class="waves-effect waves-light btn"
-                                   target="_blank">
-                                    <i class="icon fa fa-eye fa-fw"></i>阅读更多
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        
-            
-            <div class="carousel-item amber white-text carousel-post bg-cover"
                  style="background-image: url('https://browser9.qhimg.com/bdm/1280_800_85/t01a5211bae6d28520e.jpg');">
                 <div class="container">
                     <div class="row">
@@ -587,6 +544,29 @@ hexo 搭建博客汇总使用
                             </div>
                             <div class="cover-btns">
                                 <a href="/posts/e7c9.html" class="waves-effect waves-light btn"
+                                   target="_blank">
+                                    <i class="icon fa fa-eye fa-fw"></i>阅读更多
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            
+            <div class="carousel-item amber white-text carousel-post bg-cover"
+                 style="background-image: url('https://p9.qhimg.com/bdm/1280_800_85/t01b7aab4ac9d0afe81.jpg');">
+                <div class="container">
+                    <div class="row">
+                        <div class="col s10 offset-s1">
+                            <div class="title center-align">Java的数据类型</div>
+                            <div class="description center-align">
+                                
+                                    Java 数据类型简述。
+                                
+                            </div>
+                            <div class="cover-btns">
+                                <a href="/posts/251.html" class="waves-effect waves-light btn"
                                    target="_blank">
                                     <i class="icon fa fa-eye fa-fw"></i>阅读更多
                                 </a>
@@ -715,8 +695,7 @@ hexo 搭建博客汇总使用
                     <a href="/posts/3e1d.html">
                         <div class="card-image">
                             
-                            
-                            <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="Java_String类概述">
+                            <img src="https://browser9.qhimg.com/bdm/1280_800_85/t01e4c1a6fad8c7be4b.jpg" class="responsive-img" alt="Java_String类概述">
                             
                             <span class="card-title">Java_String类概述</span>
                         </div>
@@ -762,8 +741,7 @@ hexo 搭建博客汇总使用
                     <a href="/posts/251.html">
                         <div class="card-image">
                             
-                            
-                            <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="Java的数据类型">
+                            <img src="https://p9.qhimg.com/bdm/1280_800_85/t01b7aab4ac9d0afe81.jpg" class="responsive-img" alt="Java的数据类型">
                             
                             <span class="card-title">Java的数据类型</span>
                         </div>
@@ -809,8 +787,7 @@ hexo 搭建博客汇总使用
                     <a href="/posts/e7c9.html">
                         <div class="card-image">
                             
-                            
-                            <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="hexo搭建博客汇总">
+                            <img src="https://browser9.qhimg.com/bdm/1280_800_85/t01a5211bae6d28520e.jpg" class="responsive-img" alt="hexo搭建博客汇总">
                             
                             <span class="card-title">hexo搭建博客汇总</span>
                         </div>

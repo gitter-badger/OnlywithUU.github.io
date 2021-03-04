@@ -93,34 +93,44 @@
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/tags" class="waves-effect waves-light">
+    <a href="/" class="waves-effect waves-light">
+
       
-      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
       
-      <span>标签</span>
+      <span>index</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
     </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/categories" class="waves-effect waves-light">
+    <ul class="sub-nav menus_item_child ">
       
-      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      <li>
+        <a href="/tags">
+          
+          <i class="fas fa-tags" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span></span>
+        </a>
+      </li>
       
-      <span>分类</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/archives" class="waves-effect waves-light">
+      <li>
+        <a href="/categories">
+          
+          <i class="fas fa-bookmark" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span></span>
+        </a>
+      </li>
       
-      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      <li>
+        <a href="/archives">
+          
+          <i class="fas fa-archive" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span></span>
+        </a>
+      </li>
       
-      <span>归档</span>
-    </a>
+    </ul>
     
   </li>
   
@@ -219,34 +229,46 @@
         
         <li class="m-nav-item">
 	  
-		<a href="/tags" class="waves-effect waves-light">
+		<a href="javascript:;">
 			
-			    <i class="fa-fw fas fa-tags"></i>
+				<i class="fa-fw fas fa-home"></i>
 			
-			标签
+			index
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
 		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/categories" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-bookmark"></i>
-			
-			分类
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/archives" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-archive"></i>
-			
-			归档
-		</a>
+            <ul  style="background: #00ffff;" >
+              
+                <li>
+
+                  <a href="/tags " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-tags" style="position: absolute;left:50px" ></i>
+			      
+		          <span></span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/categories " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-bookmark" style="position: absolute;left:50px" ></i>
+			      
+		          <span></span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/archives " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-archive" style="position: absolute;left:50px" ></i>
+			      
+		          <span></span>
+                  </a>
+                </li>
+              
+            </ul>
           
         </li>
         
@@ -347,7 +369,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://browser9.qhimg.com/bdm/1280_800_85/t01e4c1a6fad8c7be4b.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -491,10 +513,11 @@
 
             <div class="post-info">
                 
-                <div class="post-date info-break-policy">
-                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-03-01
-                </div>
+                <div class="info-break-policy">
+		
+		<i class="fa fa-pencil"></i> 作者: OnlywithUU
+		
+	</div>
                 
 
                 
@@ -669,7 +692,7 @@ System.out.println(s2 + "c" == s1);  //false<span aria-hidden="true" class="line
 <div id="article-share">
 
     
-    <div class="social-share" data-sites="twitter,facebook,qq,qzone,wechat,weibo,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <div class="social-share" data-sites="twitter,facebook,qq,qzone,wechat,weibo" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
     <script src="/libs/share/js/social-share.min.js"></script>
     
 
@@ -1082,7 +1105,12 @@ System.out.println(s2 + "c" == s1);  //false<span aria-hidden="true" class="line
 
 <!--酷Q推送-->
 
-
+<!-- 直达评论 -->
+<div id="to_comment" class="comment-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#vcomments" title="直达评论">
+        <i class="fas fa-comments"></i>
+    </a>
+</div>
     
 
     
@@ -1104,8 +1132,7 @@ System.out.println(s2 + "c" == s1);  //false<span aria-hidden="true" class="line
                 <a href="/posts/3e1d.html">
                     <div class="card-image">
                         
-                        
-                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="Java_String类概述">
+                        <img src="https://browser9.qhimg.com/bdm/1280_800_85/t01e4c1a6fad8c7be4b.jpg" class="responsive-img" alt="Java_String类概述">
                         
                         <span class="card-title">Java_String类概述</span>
                     </div>
@@ -1154,8 +1181,7 @@ System.out.println(s2 + "c" == s1);  //false<span aria-hidden="true" class="line
                 <a href="/posts/251.html">
                     <div class="card-image">
                         
-                        
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="Java的数据类型">
+                        <img src="https://p9.qhimg.com/bdm/1280_800_85/t01b7aab4ac9d0afe81.jpg" class="responsive-img" alt="Java的数据类型">
                         
                         <span class="card-title">Java的数据类型</span>
                     </div>
@@ -1207,7 +1233,7 @@ System.out.println(s2 + "c" == s1);  //false<span aria-hidden="true" class="line
 
         var selection = window.getSelection();
         // if the selection is short let's not annoy our users.
-        if (('' + selection).length < Number.parseInt('16')) {
+        if (('' + selection).length < Number.parseInt('12')) {
             return;
         }
 
